@@ -1,10 +1,13 @@
 <template>
   <div id="App">
+    <div class="container">
     <user-card :user="userCard"
     v-if="userCard" />
     <user-list 
     :users="users"
-    :user="userCard"/>
+    :user="userCard"
+    @openCard="openCard"/>
+    </div>
   </div>
 </template>
 
@@ -17,6 +20,7 @@ export default {
   name: 'App',
   data() {
     return {
+      userCard:'',
       users: [
         {
         login: "Azamatuz",
@@ -122,6 +126,11 @@ export default {
         }
       ]
   }
+  },
+  methods: {
+    openCard: function(userInfo) {
+      this.userCard = userInfo
+    }
   },
   components: {
     UserCard,

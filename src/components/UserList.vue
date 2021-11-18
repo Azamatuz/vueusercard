@@ -1,15 +1,20 @@
 <template>
     <div>
         <div class="row">
-            
-        </div>
-        <div v-for="(user, index) in users" :key="index">
-            <div class="card" style="width: 18rem;">
-                <img :src="user.avatar_url" class="card-img-top" alt="">
-                <div class="card-body">
-                    <h5 class="card-title">{{user.name}}</h5>
-                    <p class="card-text">{{user.bio}}</p>
-                    <a :href="user.html_url" class="btn btn-primary" target="_blank">Go to GitHub</a>
+            <div class="col" v-for="(user, index) in users" :key="index">
+                <div>
+                    <div class="card m-3">
+                        <img :src="user.avatar_url" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{user.name}}</h5>
+                            <p class="card-text">{{user.bio}}</p>
+                            <p class="text-muted"><a :href="user.html_url" target="_blank">Repos: {{ parseInt(user.public_repos) }} </a></p>
+                            <p class="text-muted">Followers: {{ parseInt(user.followers) }} </p>
+                            <button class="btn btn-primary" 
+                            @click="$emit('openCard', user)">View Details</button>
+                    
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
