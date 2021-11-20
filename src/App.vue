@@ -1,27 +1,27 @@
 <template>
   <div id="App">
     <div class="container">
-    <user-card :user="userCard"
-    v-if="userCard" />
-    <user-list 
-    :users="users"
-    :user="userCard"
+    <player-card :player="playerCard"
+    v-if="playerCard" />
+    <player-list 
+    :players="players"
+    :player="playerCard"
     @openCard="openCard"/>
     </div>
   </div>
 </template>
 
 <script>
-import UserCard from '@/components/UserCard'
-import UserList from './components/UserList.vue'
+import PlayerCard from '@/components/PlayerCard'
+import PlayerList from './components/PlayerList.vue'
 
 
 export default {
   name: 'App',
   data() {
     return {
-      userCard:'',
-      users: [
+      playerCard:'',
+      players: [
         {
         login: "Azamatuz",
         id: 5535590,
@@ -128,13 +128,13 @@ export default {
   }
   },
   methods: {
-    openCard: function(userInfo) {
-      this.userCard = userInfo
+    openCard: function(playerInfo) {
+      this.playerCard = playerInfo
     }
   },
   components: {
-    UserCard,
-    UserList
+    PlayerCard,
+    PlayerList
   }
 }
 </script>
